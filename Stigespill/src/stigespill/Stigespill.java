@@ -29,13 +29,27 @@ public class Stigespill {
 	 * Metode som starter selve spillet.
 	 */
 	public void startSpill() {
-		OpprettSpillere(); 
-		while(ikkeVunnet()) {
-			spillRunde();
+		OpprettSpillere();
+		boolean ikkeVunnet = True;
+		while(ikkeVunnet) {
+			ikkeVunnet = spillRunde();
 		}
 		
 			sluttSpill();
 		
+	}
+	/**
+	 * Metode gjennomfører en runde
+	 */
+	private boolean spillRunde() {
+		boolean spillFerdig = False
+		for(int i = 0; i < spillere.size(); i++) {
+			int posisjon = spillere.get(i).startTur(terning);
+			if(posisjon==99)
+				return True;
+		}
+		return False;
+
 	}
 	/**
 	 * Metode som avslutter spillet og bestemmer vinneren
@@ -54,17 +68,7 @@ public class Stigespill {
 			
 		
 	}
-	/**
-	 * Metode gjennomfører en runde
-	 */
-	private void spillRunde() {
-		for(int i = 0; i < spillere.size(); i++) {
-			spillere.get(i).startTur(terning);
-			
-		}
-		
-	}
-	
+
 	/**
 	 * Metode som oppretter spillere
 	 */

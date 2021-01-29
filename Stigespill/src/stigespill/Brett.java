@@ -1,7 +1,5 @@
 package stigespill;
 
-import java.util.Iterator;
-
 public class Brett {
 
 	private Rute[] spillerBrett;

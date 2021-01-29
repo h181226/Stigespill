@@ -13,7 +13,7 @@ public class Spiller {
 		this.brikke=new Brikke(brett, farge, 0);
 	}
 	
-	public void spill(Terning terning) {
+	public void startTur(Terning terning) {
 		int terningVerdi=0;
 		int seksere=0;
 		

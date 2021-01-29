@@ -59,7 +59,7 @@ public class Stigespill {
 	 */
 	private void spillRunde() {
 		for(int i = 0; i < spillere.size(); i++) {
-			spillere.get(i).spill(terning);
+			spillere.get(i).startTur(terning);
 			
 		}
 		

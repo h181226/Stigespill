@@ -1,20 +1,21 @@
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class StigespillTest {
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void startSpill() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void sluttSpill() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void opprettSpillere() {
     }
 }

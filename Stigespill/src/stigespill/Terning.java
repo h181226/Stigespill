@@ -10,9 +10,10 @@ public class Terning {
 		this.verdi=0;
 	}
 	
-	public void trillTerning() {
+	public int trillTerning() {
 		Random tall = new Random();
 		verdi = 1 + tall.nextInt(6);
+		return verdi;
 	}
 	
 	public int getVerdi() {

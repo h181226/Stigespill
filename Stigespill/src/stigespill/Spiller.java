@@ -3,52 +3,70 @@ package stigespill;
 import java.util.Scanner;
 
 public class Spiller {
-	
+
 	private Scanner scanner = new Scanner(System.in);
 	private String navn;
 	private Brikke brikke;
-	
+
 	public Spiller(String navn, String farge) {
 		this.navn=navn;
 		this.brikke=new Brikke(farge);
 	}
-	
+
 	public int startTur(Terning terning) {
 		int terningVerdi=0;
 		int seksere=0;
-		
+
 		System.out.println("---------------------------------");
 		System.out.println("Det er " + navn + " sin tur");
 		System.out.println("Trykk enter for å trille");
-			if(scanner.hasNextLine()) {
-				terning.trillTerning();
-				terningVerdi = terning.getVerdi();
-				System.out.println("Du fikk " +  terningVerdi);
-	
-	while (terningVerdi==6 && seksere<3){
-		System.out.println("***triller på nytt***");
-		seksere++;
-		terning.trillTerning();
-		terningVerdi=6+terning.getVerdi();
-		System.out.println("Du fikk " + terning.getVerdi());
-	}
-	
-	if(seksere==3) {
-		System.out.println("Du fikk 3 seksere på rad " + navn + " må tilbake til start");
-		terningVerdi = 0;
-		brikke.setPosisjon(0);
-	}
-	
-	else {
-		brikke.setPosisjon(terningVerdi+brikke.getPosisjon());
-	}
-	
-	System.out.println("Du er nå på rute " + brikke.getPosisjon());
-	scanner.nextLine();	
-	
-	}	
+		
+		do {
+			int flyttEkstra;
+			// Kast terning og flytt brikken
+			terningVerdi=terning.trillTerning();
+			if (seksere == 3) {
+				brikke.setPosisjon(0);
+				System.out.println("Det var synd, du fikk 3 6ere og er flyttet tilbake til start");
+				return brikke.getPosisjon();
+			}else if(terningVerdi == 6) {
+				seksere++;
+				System.out.println("Du fikk " + terningVerdi + " ,trill igjen");
+			}else{
+				System.out.println("Du fikk " + terningVerdi);
 			}
-	
+			
+			flyttEkstra = flyttOgSjekk(terningVerdi);
+			
+			if(flyttEkstra > 0) {
+				flyttOmStige(flyttEkstra);
+			}else if (flyttEkstra < 0) {
+				flyttOmSlange(flyttEkstra);
+			}
+			
+			
+			
+		} while (terningVerdi==6 && seksere<3);
+		
+		return brikke.getPosisjon();
+	}
+
+	private void flyttOmSlange(int flyttEkstra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void flyttOmStige(int flyttEkstra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private int flyttOgSjekk(int terningVerdi) {
+		// TODO Auto-generated method stub
+		return 0;
+		
+	}
+
 	public String getNavn() {
 		return navn;
 	}

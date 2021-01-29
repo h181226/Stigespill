@@ -4,13 +4,7 @@ public class Brett {
 
 	private Rute[] spillerBrett;
 
-	public Rute[] getSpillerBrett() {
-		return spillerBrett;
-	}
-
-	public void setSpillerBrett(Rute[] spillerBrett) {
-		this.spillerBrett = spillerBrett;
-	}
+	
 
 	/**
 	 * Oppretter ett brett med en gitt størrelse
@@ -19,6 +13,7 @@ public class Brett {
 	 */
 	public Brett(int antallRuter) {
 		this.spillerBrett = new Rute[antallRuter];
+		oppretteBrett();
 	}
 	
 	/**
@@ -52,5 +47,13 @@ public class Brett {
 		spillerBrett[92 - 1].setFlyttAntallRuter(73-92);
 		spillerBrett[95 - 1].setFlyttAntallRuter(75-95);
 		spillerBrett[98 - 1].setFlyttAntallRuter(78-98);
+	}
+	
+	public Rute[] getSpillerBrett() {
+		return spillerBrett;
+	}
+
+	public void setSpillerBrett(Rute[] spillerBrett) {
+		this.spillerBrett = spillerBrett;
 	}
 }

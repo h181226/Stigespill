@@ -30,7 +30,7 @@ public class Stigespill {
 	 */
 	public void startSpill() {
 		OpprettSpillere();
-		boolean ikkeVunnet = True;
+		boolean ikkeVunnet = true;
 		while(ikkeVunnet) {
 			ikkeVunnet = spillRunde();
 		}
@@ -44,7 +44,7 @@ public class Stigespill {
 	private boolean spillRunde() {
 		boolean spillFerdig = false;
 		for(int i = 0; i < spillere.size(); i++) {
-			int posisjon = spillere.get(i).startTur(terning);
+			int posisjon = spillere.get(i).startTur(terning, brettet);
 			if(posisjon==99)
 				return true;
 		}
@@ -106,7 +106,7 @@ public class Stigespill {
 			case 4: farge="Gul"; break;
 			
 			}
-			Spiller spiller = new Spiller(navn, brettet, farge);
+			Spiller spiller = new Spiller(navn, farge);
 			spillere.add(spiller);
 		}
 		

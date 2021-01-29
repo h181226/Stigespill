@@ -19,7 +19,6 @@ public class Spiller {
 
 		System.out.println("---------------------------------");
 		System.out.println("Det er " + navn + " sin tur");
-		System.out.println("Trykk enter for å trille");
 		
 		do {
 			int flyttEkstra;
@@ -55,20 +54,21 @@ public class Spiller {
 		int posisjon = brikke.getPosisjon() + flyttEkstra;
 		brikke.setPosisjon(posisjon);
 		
-		System.out.println("Du landet på en slange! Du er nå på posisjon: " + posisjon);
+		System.out.println("Du landet på en slange! Du er nå på rute: " + posisjon+1);
 	}
 
 	private void flyttOmStige(int flyttEkstra) {
 		int posisjon = brikke.getPosisjon() + flyttEkstra;
 		brikke.setPosisjon(posisjon);
 		
-		System.out.println("Du landet på en stige! Du er nå på posisjon: " + posisjon);
+		System.out.println("Du landet på en stige! Du er nå på rute: " + posisjon+1);
 		
 	}
 
 	private int flyttOgSjekk(int terningVerdi, Brett brett) {
 		int posisjon = brikke.getPosisjon() + terningVerdi;
 		brikke.setPosisjon(posisjon);
+		System.out.println("Du er nå på rute: " + posisjon+1);
 		
 		return brett.getSpillerBrett()[posisjon].getFlyttAntallRuter();
 	}

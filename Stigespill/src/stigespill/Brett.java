@@ -13,4 +13,10 @@ public class Brett {
 		this.spillerbrett = new Rute[str];
 	}
 	
+	/**
+	 * 
+	 */
+	public void oppretteBrett() {
+		
+	}
 }

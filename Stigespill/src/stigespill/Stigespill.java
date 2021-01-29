@@ -20,7 +20,7 @@ public class Stigespill {
 	 */
 	
 	public Stigespill() {
-		this.brettet = new Brett();
+		this.brettet = new Brett(100);
 		this.terning = new Terning();
 		
 		

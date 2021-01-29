@@ -61,7 +61,7 @@ public class Spiller {
 		int posisjon = brikke.getPosisjon() + flyttEkstra;
 		brikke.setPosisjon(posisjon);
 		
-		System.out.println("Du landet på en stige! Du er nå på rute: " + (posisjon+1));
+		System.out.println("Du landet på en stige! Du er nå på rute: " + (posisjon+1)); 
 		
 	}
 

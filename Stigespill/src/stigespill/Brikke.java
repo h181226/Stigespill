@@ -5,7 +5,7 @@ public class Brikke {
 	private String farge;
 	private int posisjon;
 	
-	public Brikke (String farge, int posisjon) {
+	public Brikke (String farge) {
 		this.farge=farge;
 		this.posisjon=0;
 	}

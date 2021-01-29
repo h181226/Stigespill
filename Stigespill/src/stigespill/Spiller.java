@@ -8,12 +8,12 @@ public class Spiller {
 	private String navn;
 	private Brikke brikke;
 	
-	public Spiller(String navn, Brett brett, String farge) {
+	public Spiller(String navn, String farge) {
 		this.navn=navn;
-		this.brikke=new Brikke(brett, farge, 0);
+		this.brikke=new Brikke(farge);
 	}
 	
-	public void startTur(Terning terning) {
+	public int startTur(Terning terning) {
 		int terningVerdi=0;
 		int seksere=0;
 		

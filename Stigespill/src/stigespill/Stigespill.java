@@ -42,13 +42,13 @@ public class Stigespill {
 	 * Metode gjennomfører en runde
 	 */
 	private boolean spillRunde() {
-		boolean spillFerdig = False
+		boolean spillFerdig = false;
 		for(int i = 0; i < spillere.size(); i++) {
 			int posisjon = spillere.get(i).startTur(terning);
 			if(posisjon==99)
-				return True;
+				return true;
 		}
-		return False;
+		return false;
 
 	}
 	/**

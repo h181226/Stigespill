@@ -30,9 +30,9 @@ public class Stigespill {
 	 */
 	public void startSpill() {
 		OpprettSpillere();
-		boolean ikkeVunnet = true;
-		while(ikkeVunnet) {
-			ikkeVunnet = spillRunde();
+		boolean Vunnet = false;
+		while(!Vunnet) {
+			Vunnet = spillRunde();
 		}
 		
 			sluttSpill();

@@ -54,21 +54,25 @@ public class Spiller {
 		int posisjon = brikke.getPosisjon() + flyttEkstra;
 		brikke.setPosisjon(posisjon);
 		
-		System.out.println("Du landet på en slange! Du er nå på rute: " + posisjon+1);
+		System.out.println("Du landet på en slange! Du er nå på rute: " + (posisjon+1));
 	}
 
 	private void flyttOmStige(int flyttEkstra) {
 		int posisjon = brikke.getPosisjon() + flyttEkstra;
 		brikke.setPosisjon(posisjon);
 		
-		System.out.println("Du landet på en stige! Du er nå på rute: " + posisjon+1);
+		System.out.println("Du landet på en stige! Du er nå på rute: " + (posisjon+1));
 		
 	}
 
 	private int flyttOgSjekk(int terningVerdi, Brett brett) {
 		int posisjon = brikke.getPosisjon() + terningVerdi;
+		if(posisjon > 99) {
+			System.out.println("Du endte over 100 og står i ro");
+			return 0;
+		}
 		brikke.setPosisjon(posisjon);
-		System.out.println("Du er nå på rute: " + posisjon+1);
+		System.out.println("Du er nå på rute: " + (posisjon+1));
 		
 		return brett.getSpillerBrett()[posisjon].getFlyttAntallRuter();
 	}

@@ -13,7 +13,7 @@ public class Spiller {
 		this.brikke=new Brikke(farge);
 	}
 
-	public int startTur(Terning terning) {
+	public int startTur(Terning terning, Brett brett) {
 		int terningVerdi=0;
 		int seksere=0;
 
@@ -36,7 +36,7 @@ public class Spiller {
 				System.out.println("Du fikk " + terningVerdi);
 			}
 			
-			flyttEkstra = flyttOgSjekk(terningVerdi);
+			flyttEkstra = flyttOgSjekk(terningVerdi, brett);
 			
 			if(flyttEkstra > 0) {
 				flyttOmStige(flyttEkstra);
@@ -52,21 +52,25 @@ public class Spiller {
 	}
 
 	private void flyttOmSlange(int flyttEkstra) {
-		// TODO Auto-generated method stub
+		int posisjon = brikke.getPosisjon() + flyttEkstra;
+		brikke.setPosisjon(posisjon);
 		
+		System.out.println("Du landet på en slange! Du er nå på posisjon: " + posisjon);
 	}
 
 	private void flyttOmStige(int flyttEkstra) {
-		// TODO Auto-generated method stub
+		int posisjon = brikke.getPosisjon() + flyttEkstra;
+		brikke.setPosisjon(posisjon);
+		
+		System.out.println("Du landet på en stige! Du er nå på posisjon: " + posisjon);
 		
 	}
 
-	private int flyttOgSjekk(int terningVerdi) {
-		brikke.setPosisjon(brikke.getPosisjon() + );
+	private int flyttOgSjekk(int terningVerdi, Brett brett) {
+		int posisjon = brikke.getPosisjon() + terningVerdi;
+		brikke.setPosisjon(posisjon);
 		
-		
-		return 0;
-		
+		return brett.getSpillerBrett()[posisjon].getFlyttAntallRuter();
 	}
 
 	public String getNavn() {

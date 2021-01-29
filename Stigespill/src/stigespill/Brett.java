@@ -4,6 +4,14 @@ public class Brett {
 
 	private Rute[] spillerBrett;
 
+	public Rute[] getSpillerBrett() {
+		return spillerBrett;
+	}
+
+	public void setSpillerBrett(Rute[] spillerBrett) {
+		this.spillerBrett = spillerBrett;
+	}
+
 	/**
 	 * Oppretter ett brett med en gitt størrelse
 	 * 

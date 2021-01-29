@@ -62,7 +62,9 @@ public class Spiller {
 	}
 
 	private int flyttOgSjekk(int terningVerdi) {
-		// TODO Auto-generated method stub
+		brikke.setPosisjon(brikke.getPosisjon() + );
+		
+		
 		return 0;
 		
 	}

@@ -1,28 +1,53 @@
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import stigespill.Brett;
+import stigespill.Spiller;
+import stigespill.Terning;
+
+
+
+import java.util.Random;
 
 class SpillerTest {
-
-    @org.junit.jupiter.api.BeforeEach
+    Brett testBrett = new Brett(99);
+    Spiller spiller = new Spiller("Chen", "White");
+    Terning terning = new Terning();
+    Random random = new Random();
+    @BeforeEach
     void setUp() {
+
+
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void startTur() {
+        int position = 0;
+        for(int i = 0 ; i < 1000 ; i++) {
+            ;
+            int after_position = spiller.startTur(terning, testBrett);
+            System.out.println(after_position);
+        }
+
+
+
+
+
+
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getNavn() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setNavn() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getBrikke() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setBrikke() {
     }
 }

@@ -15,8 +15,6 @@ public class Stigespill {
 
 	/**
 	 * Oppretter et nytt stigespillobjektet
-	 * 
-	 * 
 	 */
 	
 	public Stigespill() {
@@ -70,7 +68,7 @@ public class Stigespill {
 	}
 
 	/**
-	 * Metode som oppretter spillere
+	 * Metode som oppretter spillere ved å lese inn navn fra konsoll
 	 */
 	public void OpprettSpillere() {
 		 

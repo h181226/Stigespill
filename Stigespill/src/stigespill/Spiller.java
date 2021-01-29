@@ -8,11 +8,23 @@ public class Spiller {
 	private String navn;
 	private Brikke brikke;
 
+	/**
+	 * Oppretter en spiller og en brikke tilhørende spilleren
+	 * @param navn
+	 * @param farge
+	 */
 	public Spiller(String navn, String farge) {
 		this.navn=navn;
 		this.brikke=new Brikke(farge);
 	}
 
+	/**
+	 * Triller terningen og sjekker om spilleren får en 6er eller allerede fått tre 6ere. 
+	 * Kaller deretter på metoder for å flytte brikken
+	 * @param terning
+	 * @param brett
+	 * @return
+	 */
 	public int startTur(Terning terning, Brett brett) {
 		int terningVerdi=0;
 		int seksere=0;
@@ -50,6 +62,10 @@ public class Spiller {
 		return brikke.getPosisjon();
 	}
 
+	/**
+	 * Hvis spilleren er på en rute med slange flyttes spilleren tilbake gitt antall ruter
+	 * @param flyttEkstra, antall ruter brikken skal flyttes
+	 */
 	private void flyttOmSlange(int flyttEkstra) {
 		int posisjon = brikke.getPosisjon() + flyttEkstra;
 		brikke.setPosisjon(posisjon);
@@ -57,6 +73,10 @@ public class Spiller {
 		System.out.println("Du landet på en slange! Du er nå på rute: " + (posisjon+1));
 	}
 
+	/**
+	 * Hvis spilleren er på en rute med stige flyttes spilleren frem gitt antall ruter
+	 * @param flyttEkstra, antall ruter brikken skal flyttes
+	 */
 	private void flyttOmStige(int flyttEkstra) {
 		int posisjon = brikke.getPosisjon() + flyttEkstra;
 		brikke.setPosisjon(posisjon);
@@ -65,6 +85,12 @@ public class Spiller {
 		
 	}
 
+	/**
+	 * Flytter brikken til spilleren ett gitt antall ruter og sjekker om ruten er en slange- eller stigerute
+	 * @param terningVerdi
+	 * @param brett
+	 * @return antall ruter brikken skal flyttes i tillegg (rute med slange eller stige)
+	 */
 	private int flyttOgSjekk(int terningVerdi, Brett brett) {
 		int posisjon = brikke.getPosisjon() + terningVerdi;
 		if(posisjon > 99) {

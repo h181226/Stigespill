@@ -5,6 +5,11 @@ public class Rute {
 	private int nummer;
 	private int flyttAntallRuter;
 	
+	
+/**
+ * Oppretter en rute med ett gitt nummer
+ * @param nummer
+ */
 	public Rute(int nummer) {
 		this.nummer = nummer;
 		flyttAntallRuter = 0;

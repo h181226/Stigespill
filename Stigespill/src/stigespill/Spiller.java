@@ -27,7 +27,7 @@ public class Spiller {
 	 */
 	public int startTur(Terning terning, Brett brett) {
 		int terningVerdi=0;
-		int seksere=0;
+		int antallSeksere=0;
 
 		System.out.println("---------------------------------");
 		System.out.println("Det er " + navn + " sin tur");
@@ -36,15 +36,16 @@ public class Spiller {
 			int flyttEkstra;
 			// Kast terning og flytt brikken
 			terningVerdi=terning.trillTerning();
-			if (seksere == 3) {
+			
+			//Oppdaterer "antallSeksere" hvis spilleren triller en 6er
+			if(terningVerdi == 6) {
+				antallSeksere++;
+			}
+			
+			if (antallSeksere == 3) {
 				brikke.setPosisjon(0);
 				System.out.println("Det var synd, du fikk 3 6ere og er flyttet tilbake til start");
 				return brikke.getPosisjon();
-			}else if(terningVerdi == 6) {
-				seksere++;
-				System.out.println("Du fikk " + terningVerdi + " ,trill igjen");
-			}else{
-				System.out.println("Du fikk " + terningVerdi);
 			}
 			
 			flyttEkstra = flyttOgSjekk(terningVerdi, brett);
@@ -53,11 +54,9 @@ public class Spiller {
 				flyttOmStige(flyttEkstra);
 			}else if (flyttEkstra < 0) {
 				flyttOmSlange(flyttEkstra);
-			}
+			}	
 			
-			
-			
-		} while (terningVerdi==6 && seksere<3);
+		} while (terningVerdi==6);
 		
 		return brikke.getPosisjon();
 	}

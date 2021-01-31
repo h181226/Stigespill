@@ -17,15 +17,14 @@ class SpillTest {
     Spiller spiller = new Spiller("Chen", "White");
     Terning terning = new Terning();
     Random random = new Random();
-    @BeforeEach
-    void setUp() {
 
-
-    }
-
+    /**
+     * Skjekk at en spiller aldri kommer utenfor brettet
+     *
+     */
     @Test
-    void startTur() {
-        // Skjekk at en spiller aldri kommer utenfor brettet
+    void startTurBrettPosisjon() {
+        //
         int maxPos =0;
         int minPos =0;
         for (int testStartPosisjon = 0 ; testStartPosisjon < 100; testStartPosisjon++) {
@@ -44,7 +43,17 @@ class SpillTest {
 
         }}
 
-        //  Skjekk 3 kast med 6'ere sender spiller til posisjon 0
+
+
+
+
+    }
+    /**
+     *  Skjekk 3 kast med 6'ere sender spiller til posisjon 0
+     *
+     */
+    @Test
+    void kasteSeksere() {
         for (int testStartPosisjon = 0 ; testStartPosisjon < 100; testStartPosisjon++) {
             spiller.getBrikke().setPosisjon(testStartPosisjon);
             int terningVerdi = 6;
@@ -54,22 +63,27 @@ class SpillTest {
             Assertions.assertTrue(spiller.getBrikke().getPosisjon() == positionAfter);
         }
 
-
     }
 
+
+    /**
+     *   // Skjekk at stigene og slangene fungerer
+     *
+     */
     @Test
     void stigerOgSlanger() {
-        // Skjekk at stigene og slangene fungerer
 
-        spiller.getBrikke().setPosisjon(0); // stige rute# 4
+        // stige rute# 4
+        spiller.getBrikke().setPosisjon(0);
         int terningVerdi = 3;
         this.terning = new TerningTest(terningVerdi);
         int positionAfter = spiller.startTur(terning,testBrett);
         Assertions.assertTrue(spiller.getBrikke().getPosisjon() == 13);
         Assertions.assertTrue(spiller.getBrikke().getPosisjon() == positionAfter);
 
+        // stige rute# 27
         for(terningVerdi = 1 ; terningVerdi > 6 ; terningVerdi++) {
-            spiller.getBrikke().setPosisjon(27-terningVerdi); // stige rute# 27
+            spiller.getBrikke().setPosisjon(27-terningVerdi);
 
             this.terning = new TerningTest(terningVerdi);
             positionAfter = spiller.startTur(terning, testBrett);
@@ -77,8 +91,9 @@ class SpillTest {
             Assertions.assertTrue(spiller.getBrikke().getPosisjon() == positionAfter);
         }
 
+        // slange rute# 61
         for(terningVerdi = 1 ; terningVerdi > 6 ; terningVerdi++) {
-            spiller.getBrikke().setPosisjon(61-terningVerdi); // slange rute# 61
+            spiller.getBrikke().setPosisjon(61-terningVerdi);
 
             this.terning = new TerningTest(terningVerdi);
             positionAfter = spiller.startTur(terning, testBrett);
@@ -88,6 +103,10 @@ class SpillTest {
 
         }
 
+    /**
+     *   Skjekk at riktig vinner blir valgt
+     *
+     */
     @Test
     void skjekkVinner() {
         Spiller spiller2 = new Spiller("Jens", "Rosa");
@@ -111,7 +130,10 @@ class SpillTest {
 
 
     }
-
+    /**
+     *   Skjekk at brettet lager spesial ruter
+     *
+     */
     @Test
     void testBrett() {
         Brett brett = new Brett(100);

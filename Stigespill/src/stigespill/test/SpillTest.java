@@ -6,10 +6,13 @@ import stigespill.Spiller;
 import stigespill.Terning;
 
 
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
-class SpillerTest {
+class SpillTest {
     Brett testBrett = new Brett(100);
     Spiller spiller = new Spiller("Chen", "White");
     Terning terning = new Terning();
@@ -55,7 +58,7 @@ class SpillerTest {
     }
 
     @Test
-    void flyttOgSkjekk() {
+    void stigerOgSlanger() {
         // Skjekk at stigene og slangene fungerer
 
         spiller.getBrikke().setPosisjon(0); // stige rute# 4
@@ -83,28 +86,67 @@ class SpillerTest {
             Assertions.assertTrue(spiller.getBrikke().getPosisjon() == positionAfter);
         }
 
-
-
-
         }
 
-
-
-
-
-
     @Test
-    void setNavn() {
+    void skjekkVinner() {
+        Spiller spiller2 = new Spiller("Jens", "Rosa");
+        Spiller spiller3 = new Spiller("Atle", "Sort");
+        ArrayList<Spiller> spillere = new ArrayList<Spiller>();
+
+        spillere.add(spiller);
+        spillere.add(spiller2);
+        spillere.add(spiller3);
+
+        for (int testStartPosisjon = 0 ; testStartPosisjon < 99; testStartPosisjon++) {
+            int pos = testStartPosisjon;
+            spillere.forEach( s -> s.getBrikke().setPosisjon(pos));
+
+
+            Assertions.assertTrue(spillere.stream().filter(s -> s.getBrikke().getPosisjon() == 99).map(s -> s.getNavn()).collect(Collectors.joining()).equals(""));
+
+        }
+        spiller3.getBrikke().setPosisjon(99);
+        Assertions.assertTrue(spillere.stream().filter(s -> s.getBrikke().getPosisjon() == 99).map(s -> s.getNavn()).collect(Collectors.joining()).equals("Atle"));
+
+
     }
 
     @Test
-    void getBrikke() {
+    void testBrett() {
+        Brett brett = new Brett(100);
+        Assertions.assertTrue(brett.getSpillerBrett().length == 100);
+
+        Assertions.assertTrue(brett.getSpillerBrett()[1].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[3].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[7].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[20].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[27].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[35].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[50].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[70].getFlyttAntallRuter() != 0);
+
+        //Oppdaterer spesialrutene slanger
+
+        Assertions.assertTrue(brett.getSpillerBrett()[15].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[46].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[48].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[55].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[61].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[63].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[85].getFlyttAntallRuter() != 0);
+        Assertions.assertTrue(brett.getSpillerBrett()[91].getFlyttAntallRuter() != 0);
+
+
+
     }
 
-    @Test
-    void setBrikke() {
-    }
 
+    /**
+     * Kontrolerbar vektet test Terning klasse
+     * @author Ehrensverd
+     *
+     */
     class TerningTest extends Terning {
         private int statiskTerningVerdi;
         TerningTest(int statiskTerningVerdi) {
@@ -113,7 +155,7 @@ class SpillerTest {
         }
 
         /**
-         * Triller en terning med verdier fra 1-6
+         * Triller en terning med vektet verdi
          *
          * @return verdi av terning
          */

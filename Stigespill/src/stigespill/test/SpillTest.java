@@ -139,6 +139,7 @@ class SpillTest {
         Brett brett = new Brett(100);
         Assertions.assertTrue(brett.getSpillerBrett().length == 100);
 
+        // Stiger
         Assertions.assertTrue(brett.getSpillerBrett()[1].getFlyttAntallRuter() != 0);
         Assertions.assertTrue(brett.getSpillerBrett()[3].getFlyttAntallRuter() != 0);
         Assertions.assertTrue(brett.getSpillerBrett()[7].getFlyttAntallRuter() != 0);
@@ -148,7 +149,7 @@ class SpillTest {
         Assertions.assertTrue(brett.getSpillerBrett()[50].getFlyttAntallRuter() != 0);
         Assertions.assertTrue(brett.getSpillerBrett()[70].getFlyttAntallRuter() != 0);
 
-        //Oppdaterer spesialrutene slanger
+        //Slanger
 
         Assertions.assertTrue(brett.getSpillerBrett()[15].getFlyttAntallRuter() != 0);
         Assertions.assertTrue(brett.getSpillerBrett()[46].getFlyttAntallRuter() != 0);

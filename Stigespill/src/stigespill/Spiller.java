@@ -40,6 +40,7 @@ public class Spiller {
 			//Oppdaterer "antallSeksere" hvis spilleren triller en 6er
 			if(terningVerdi == 6) {
 				antallSeksere++;
+				System.out.println("Du fekk terningkast 6");
 			}
 			
 			if (antallSeksere == 3) {
